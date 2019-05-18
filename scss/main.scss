@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
+
+$main_color: #f7672a;
+$hover_color: #59656f;
+$grey_color: #bfc0c0;
+$dark_color: #1d1e2c;
+$off_white: #f7ebec;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+//TODO: Figure out the font you want to use.
+
+body {
+  margin: 0;
+  background: $dark_color;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+}
+
+/* navigation styles start here */
+
+#header {
+  background: $main_color;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo {
+  margin: 0;
+  height: 38px;
+  font-size: 25px;
+  text-align: right;
+  margin-right: 10px;
+  color: $dark_color;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: $dark_color;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: $main_color;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+
+  a {
+    color: $dark_color;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+
+    &:hover {
+      color: $hover_color;
+    }
+  }
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 150ms ease-in-out 250ms;
+}
+
+#heroBanner,
+#logBanner {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: auto;
+  padding: 38px 0 25px 0;
+  width: 100%;
+
+  h1 {
+    color: $main_color;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $main_color;
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.cardContainer {
+  display: grid;
+  grid-gap: 1.5rem;
+  background-color: $grey_color;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding: 25px 0 25px 0;
+}
+
+.card {
+  display: grid;
+  box-shadow: 0px 1px 5px #555;
+  background-color: $off_white;
+}
+
+.card .button {
+  align-self: end;
+}
+
+.cardThumbnail {
+  margin: 0 !important;
+}
+
+.cardThumbnail img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  color: $dark_color;
+
+  h3 {
+    margin: 5px 0;
+    text-align: center;
+  }
+}
+
+.cardDescription {
+  margin: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.cardTags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: $off_white;
+  width: 100%;
+  background: $hover_color;
+  padding: 10px;
+}
+
+.button {
+  display: block;
+  background-color: $main_color;
+  padding: 10px 20px;
+  color: $off_white;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    background-color: $dark_color;
+    color: $main_color;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0 20px 0;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.contact .fab {
+  font-size: 50px;
+  color: $main_color;
+}
+
+.dailyLogSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content;
+  grid-gap: 15px;
+  background: $off_white;
+  padding: 0px 20px 20px 20px;
+
+  a {
+    background: linear-gradient(to bottom, $main_color 0%, $main_color 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 4px;
+    color: $dark_color;
+    text-decoration: none;
+    transition: background-size 0.2s;
+  }
+
+  a:hover {
+    background-size: 4px 50px;
+    color: $off_white;
+  }
+}
+
+.dailyLogSection span {
+  background: $main_color;
+  color: $dark_color;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+footer p {
+  color: $main_color;
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  html {
+    min-height: 100%;
+  }
+
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  .logo {
+    grid-column: 2 / 3;
+    padding-bottom: 50px;
+    font-size: 30px;
+  }
+
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      margin-left: 3em;
+      margin-bottom: 0;
+    }
+
+    a {
+      opacity: 1;
+      position: relative;
+
+      &::before {
+        content: "";
+        display: block;
+        height: 5px;
+        background: $hover_color;
+        position: absolute;
+        top: -0.3em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+      }
+
+      &:hover::before {
+        transform: scale(1, 1);
+      }
+    }
+  }
+
+  #heroBanner,
+  #logBanner {
+    grid-template-columns: 1fr minmax(900px, 3fr) 1fr;
+    grid-template-rows: 25vh auto;
+    padding-bottom: 25px;
+
+    h1 {
+      font-size: 80px;
+      align-self: end;
+      margin: 0;
+    }
+    p {
+      grid-column: 2;
+      font-size: 1.5rem;
+    }
+  }
+
+  .projectsSection {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr repeat(3, 3fr) 1fr;
+    padding-bottom: 10px;
+    padding: 25px 0px 25px 0px;
+
+    h2 {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  .projectOne {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .projectTwo {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .projectThree {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .dailyLogSection {
+    padding: 0 15% 50px 15%;
+  }
+}
