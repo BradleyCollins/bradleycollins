@@ -161,10 +161,6 @@ nav {
   background-color: $off_white;
 }
 
-.card .button {
-  align-self: end;
-}
-
 .cardThumbnail {
   margin: 0 !important;
 }
@@ -278,7 +274,7 @@ footer p {
     display: none;
   }
 
-  header {
+  #header {
     display: grid;
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
@@ -345,32 +341,16 @@ footer p {
     }
   }
 
-  .projectsSection {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr repeat(3, 3fr) 1fr;
-    padding-bottom: 10px;
-    padding: 25px 0px 25px 0px;
-
-    h2 {
-      grid-column: 2;
-      grid-row: 1;
-    }
+  .cardContainer {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
-  .projectOne {
-    grid-column: 2;
-    grid-row: 1;
+  .card {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
-  .projectTwo {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
-  .projectThree {
-    grid-column: 4;
-    grid-row: 1;
+  .button {
+    max-height: 100%;
   }
 
   .dailyLogSection {
