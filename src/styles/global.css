@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-brand: #f7672a;
+  --color-slate: #59656f;
+  --color-mist: #bfc0c0;
+  --color-ink: #1d1e2c;
+  --color-paper: #f7ebec;
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}

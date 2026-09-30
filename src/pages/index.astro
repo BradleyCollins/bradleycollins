@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects, socials } from "../data/projects";
+---
+
+<BaseLayout>
+  <section class="mx-auto max-w-5xl px-4 py-24 md:py-32">
+    <p class="font-mono text-brand">Hey hey 👋</p>
+    <h1 class="mt-4 font-mono text-4xl font-bold leading-tight md:text-6xl">
+      I'm Bradley Collins.
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-mist md:text-xl">
+      I currently work as a Project Manager with a focus on eCommerce. When I'm not working my day job, I'm
+      usually tinkering on side projects, playing Fortnite with my son, or planning the next run/hike/bike trip
+      with the fam bam.
+    </p>
+    <div class="mt-8 flex gap-4 font-mono text-sm">
+      <a href="#projects" class="rounded-md bg-brand px-5 py-3 font-bold text-ink hover:bg-paper">See my projects</a>
+      <a href="/blog/" class="rounded-md border border-white/20 px-5 py-3 hover:border-brand hover:text-brand">Read the blog</a>
+    </div>
+  </section>
+
+  <section id="projects" class="border-t border-white/10 bg-white/[0.02]">
+    <div class="mx-auto max-w-5xl px-4 py-20">
+      <h2 class="font-mono text-3xl font-bold">Projects</h2>
+      <p class="mt-2 text-mist">Things I've been up to. Don't mind the WIPs :D</p>
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="mx-auto max-w-5xl px-4 py-20 text-center">
+    <h2 class="font-mono text-3xl font-bold">Say hello</h2>
+    <p class="mt-2 text-mist">Find me around the internet.</p>
+    <ul class="mt-8 flex justify-center gap-4 font-mono">
+      {
+        socials.map((social) => (
+          <li>
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener"
+              class="block rounded-md border border-white/20 px-5 py-3 hover:border-brand hover:text-brand"
+            >
+              {social.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

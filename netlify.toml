@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Keep the old blog URL working
+[[redirects]]
+  from = "/coding_log.html"
+  to = "/blog/"
+  status = 301
