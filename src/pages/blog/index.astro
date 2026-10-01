@@ -36,9 +36,9 @@ const formatDate = (date: Date) =>
 
 <script>
   import { gsap } from "gsap";
-  import { TextPlugin } from "gsap/TextPlugin";
+  import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-  gsap.registerPlugin(TextPlugin);
+  gsap.registerPlugin(ScrambleTextPlugin);
 
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const title = document.querySelector(".decode-text")!;
@@ -46,7 +46,9 @@ const formatDate = (date: Date) =>
     // Decode from block characters into the title, pausing between each loop
     gsap
       .timeline({ repeat: -1, repeatDelay: 3 })
-      .set(title, { text: "▓▒░█" })
-      .to(title, { text: { value: "Blog" }, duration: 1.5, ease: "none" });
+      .call(() => {
+        title.textContent = "▓▒░█";
+      })
+      .to(title, { scrambleText: { text: "Blog", chars: "XO!#" }, duration: 1.5, ease: "none" });
   }
 </script>
